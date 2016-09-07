@@ -2,51 +2,24 @@
 <html>
 <head>
     <meta>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            display: flex;
+        }
+        
+    </style>
 </head>
 <body>
-<span id="ajaxButton" style="cursor: pointer; text-decoration: underline">
-  Make a request
-</span>
-<script type="text/javascript">
-(function() {
-  var httpRequest;
-  document.getElementById("ajaxButton").onclick = function() { makeRequest('test.html'); };
+<nav>
+    <div id="container">
+        
+    </div>
+</nav>
 
-  function makeRequest(url) {
-    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-      httpRequest = new XMLHttpRequest();
-    } else if (window.ActiveXObject) { // IE
-      try {
-        httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-      }
-      catch (e) {
-        try {
-          httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        catch (e) {}
-      }
-    }
-
-    if (!httpRequest) {
-      alert('Giving up :( Cannot create an XMLHTTP instance');
-      return false;
-    }
-    httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('GET', url);
-    httpRequest.send();
-  }
-
-  function alertContents() {
-    if (httpRequest.readyState === 4) {
-      if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
-      } else {
-        alert('There was a problem with the request.');
-      }
-    }
-  }
-})();
-</script>
 </body>
 </html>
